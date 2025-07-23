@@ -31,3 +31,44 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elevatorsaga-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elevatorsaga
+  template:
+    metadata:
+      labels:
+        app: elevatorsaga
+    spec:
+      containers:
+      - name: elevatorsaga
+        image: elevatorsaga:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: UID
+          value: "1000"
+        - name: GID
+          value: "1000"
+        imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: elevatorsaga-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: elevatorsaga
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 80
