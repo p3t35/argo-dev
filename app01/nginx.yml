@@ -19,20 +19,6 @@ spec:
         image: "nginx:latest"
         ports:
         - containerPort: 80
-        volumeMounts:
-        - name: nginx-storage
-          mountPath: /usr/share/nginx/html
-  persistentVolumeClaimRetentionPolicy:
-    whenDeleted: Delete
-  volumeClaimTemplates:
-  - metadata:
-      name: nginx-storage
-    spec:
-      accessModes: ["ReadWriteOnce"]
-      storageClassName: "vks"
-      resources:
-        requests:
-          storage: 1Gi
 ---
 kind: Service
 apiVersion: v1
