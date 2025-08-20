@@ -1,8 +1,10 @@
+---
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: nginx-deployment
+  name: nginx-statefulset
 spec:
+  serviceName: "nginx"
   replicas: 5
   selector:
     matchLabels:
@@ -14,6 +16,33 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:latest
+        image: "nginx:latest"
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: nginx-storage
+          mountPath: /usr/share/nginx/html
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Delete
+  volumeClaimTemplates:
+  - metadata:
+      name: nginx-storage
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      storageClassName: "vks"
+      resources:
+        requests:
+          storage: 1Gi
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: http
