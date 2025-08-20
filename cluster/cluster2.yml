@@ -1,7 +1,7 @@
 apiVersion: cluster.x-k8s.io/v1beta1
 kind: Cluster
 metadata:
-  name: kubernetes-cluster-vl1k
+  name: kubernetes-cluster-2
   namespace: argocd
 spec:
   clusterNetwork:
@@ -28,5 +28,5 @@ spec:
     workers:
       machineDeployments:
         - class: node-pool
-          name: kubernetes-cluster-vl1k-np-bc1i
+          name: kubernetes-cluster-2-np-bc1i
           replicas: 1
