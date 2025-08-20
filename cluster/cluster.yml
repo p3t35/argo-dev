@@ -3,6 +3,9 @@ kind: Cluster
 metadata:
   name: kubernetes-cluster-vl1k
   namespace: argocd
+  labels:
+    take-along-label.capi-to-argocd.foo: ""
+    take-along-label.capi-to-argocd.my.domain.com/env: ""
 spec:
   clusterNetwork:
     pods:
