@@ -1,10 +1,8 @@
 apiVersion: cluster.x-k8s.io/v1beta1
 kind: Cluster
 metadata:
-  name: ArgoCD-vks-demo
+  name: kubernetes-cluster-vl1k
   namespace: argocd
-  labels:
-    tkg-cluster-selector: ArgoCD-vks-demo
 spec:
   clusterNetwork:
     pods:
@@ -16,16 +14,19 @@ spec:
     serviceDomain: cluster.local
   topology:
     class: builtin-generic-v3.3.0
-    version: v1.32.0---vmware.6-fips-vkr.2
+    version: v1.32.3---vmware.1-fips-vkr.2
     variables:
       - name: vmClass
-        value: best-effort-small
+        value: best-effort-xsmall
       - name: storageClass
-        value: wcpglobal-storage-profile
+        value: vks
     controlPlane:
       replicas: 1
+      metadata:
+        annotations:
+          run.tanzu.vmware.com/resolve-os-image: os-name=photon, content-library=cl-6bc51e04243a8e2eb
     workers:
       machineDeployments:
         - class: node-pool
-          name: ArgoCD-vks-demo-nodepool
-          replicas: 3
+          name: kubernetes-cluster-vl1k-np-bc1i
+          replicas: 1
