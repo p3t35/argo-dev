@@ -29,4 +29,4 @@ spec:
       machineDeployments:
         - class: node-pool
           name: kubernetes-cluster-vl1k-np-bc1i
-          replicas: 3
+          replicas: 6
