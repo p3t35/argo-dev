@@ -23,9 +23,9 @@ spec:
         value: best-effort-xsmall
       - name: storageClass
         value: vks
-      - name: osConfiguration.trust
+      - name: osConfiguration
         value:
-          additionalTrustedCAs:
+          trust:
           - name: additional-ca-1
     controlPlane:
       replicas: 1
