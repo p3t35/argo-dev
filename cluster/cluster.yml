@@ -23,6 +23,10 @@ spec:
         value: best-effort-xsmall
       - name: storageClass
         value: vks
+      - name: trust
+        value:
+          additionalTrustedCAs:
+          - name: additional-ca-1
     controlPlane:
       replicas: 1
       metadata:
