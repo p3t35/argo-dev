@@ -23,7 +23,7 @@ spec:
         value: best-effort-xsmall
       - name: storageClass
         value: vks
-      - name: trust
+      - name: osConfiguration.trust
         value:
           additionalTrustedCAs:
           - name: additional-ca-1
