@@ -23,9 +23,10 @@ spec:
         value: best-effort-xsmall
       - name: storageClass
         value: vks
-      - name: osConfiguration
-        trust:
-        - name: additional-ca-1
+      - name: trust
+        value:
+          additionalTrustedCAs:
+          - name: harbor01-ca
     controlPlane:
       replicas: 1
       metadata:
