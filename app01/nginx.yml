@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - name: nginx
-    image: nginx:latest
+    image: harbor01.cloud.lab/dockerhub-proxy/library/nginx
     ports:
     - containerPort: 80
 ---
