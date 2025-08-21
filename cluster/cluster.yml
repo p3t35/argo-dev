@@ -26,7 +26,8 @@ spec:
       - name: trust
         value:
           additionalTrustedCAs:
-          - name: additional-ca-1
+          - name: harbor01-ca
+          - name: harbor02-ca
     controlPlane:
       replicas: 1
       metadata:
