@@ -26,11 +26,11 @@ spec:
       - name: osConfiguration
         value:
           trust:
-          additionalTrustedCAs:
-            - caCert:
-                secretRef:
-                  key: harbor01-ca
-                  name: ""
+            additionalTrustedCAs:
+              - caCert:
+                  secretRef:
+                    key: harbor01-ca
+                    name: ""
 
     controlPlane:
       replicas: 1
