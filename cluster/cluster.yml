@@ -23,10 +23,46 @@ spec:
         value: best-effort-xsmall
       - name: storageClass
         value: vks
-      - name: trust
+      - name: osConfiguration
         value:
-          additionalTrustedCAs:
-          - name: harbor01-ca
+          trust:
+     additionalTrustedCAs:
+       - caCert:
+           # Plain text CA cert can be added using the `content` key
+           content: |-
+            -----BEGIN CERTIFICATE-----
+            MIIFgzCCA2ugAwIBAgIUQOE5ZZzcZIHHwfbKwXduLZ4+CAIwDQYJKoZIhvcNAQEL
+            BQAwUTELMAkGA1UEBhMCQ04xDDAKBgNVBAgMA1BFSzEQMA4GA1UEBwwHQmVpSmlu
+            ZzEPMA0GA1UECgwGVk13YXJlMREwDwYDVQQDDAhIYXJib3JDQTAeFw0yNTA4MTMx
+            NTA3MTVaFw0zNTA4MTExNTA3MTVaMFExCzAJBgNVBAYTAkNOMQwwCgYDVQQIDANQ
+            RUsxEDAOBgNVBAcMB0JlaUppbmcxDzANBgNVBAoMBlZNd2FyZTERMA8GA1UEAwwI
+            SGFyYm9yQ0EwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCw5T1WVu+A
+            tA0Y47C921TGgxo1Jfjl+5hYDUITXABgPAFffOxK74MpmwqCHssiggb6lwXIcOjp
+            wPnfmc6LCcHk0Zj7uB0jleXSpKFcJi5sE2zvf0ffY3YLVnQeBfJi8S7Ytgw0kc8Q
+            Mt82LSIJ4C7HyfRVgLN4guNsl5at4eA+5SaZ9eiiS0v/lBKkOr5Jh+bhRlrcNNrB
+            n9yExHZ8ec23wkvjJNubsye/scRpTbUrK16YaasE5PXSdrmQh2XXYPvUZU2cKnjy
+            ZT6gCvIDNNG9CI+qCQInxW873L3UAmfQf6BJ179dwSGQBltJT8JG+eDQPcm1KczY
+            RzfBe36cJfgtFF0AhjFEEPP77ILJmVW0pOf53QGVcLGvDW4mVCr1Rjc2ruuwUkB4
+            Jb9LhWprAe9jR+p+5go1par/yrvv5nTJASOYnzcUmMbDUcMviy9GHGMKf//slbIW
+            sGMggafcCZAPo3Ht8h+aLL5WJhPE6O2hHYaVo+irDW6znT6u3UQd6E1GJBIJOCWM
+            vOB4tIooZQfDtsT00CEffHFdtH3rEvJLABTlA1tE1yy5AUPEEWA7hxyBoT4oX8bb
+            nc6vLgs9WWd1t60VpaK659yXJaTABjIMAekgVDQZVf6xG3/I3P7RrIQV0N5d80us
+            YbREy2MxaIuzrb6OuIz08vCnOJyKmLF3jQIDAQABo1MwUTAdBgNVHQ4EFgQUkBU1
+            GwSLmVsAIjKt+PdTrJt3sBkwHwYDVR0jBBgwFoAUkBU1GwSLmVsAIjKt+PdTrJt3
+            sBkwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAgEARQxZG1F3Flfe
+            wD8ALiW4xA5gdLMrHZill9aoxVZJ9X51XiTcHY5qEHnn49k/q8aqqcFLNB9bdswy
+            ehaXkTZ9LvEh2CciDBlGqisL9dZzfQIujwvpjMgoaxQH289b+8GbpGueuyC+Dw0b
+            8zU/JKXMvi6IrktaMi1fY4fdJ3qv9XnYx0WSETpTCIzlcG5mVPETJ2x+TFWuX2X3
+            tTQVdOTLEdgH677C83KCb9UsBAo0rV/9jzNkCUvdN9yi7bRaKj0ZpbSG8YzZgNoZ
+            /Z39Goy3uTQBaEmsKj1xa/sxb5pm8ddmjUYa6S0zmmiGoLHSUEDms027US3Vb+XI
+            R8iod5ZyhspgcL7JSmXAe/wpgiEVLFZQG2EwEAa+r0PBRyAs6g4VFuDObL6rUhMa
+            qoPFZEKAImxRTOZCKcFE1KiUYlLh5yz6UqOsBtIo/dpikn49H4gZt8ar42atttB4
+            tkePFvuF8kqdDR1Rklw+KhtVyVxBsKR1pOSoprqJW15uASjLXpOQeUqcB8Ys6eFS
+            E6gY9l4TfWw2e+O8q9GtPy7HPhm/jlTqVmtEbO9dHRNCAv/EI7RwwyPzpv74a1Js
+            QGEhEhbbt2+sDX85v2pn3a5L1P6/uYpUNRne/+vFSw0niPAHDT2SJS51+/vw2Asw
+            M64Qp4dp4qso/m+m+uQkYgH3B57mA3U=
+            -----END CERTIFICATE-----
+
     controlPlane:
       replicas: 1
       metadata:
