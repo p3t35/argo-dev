@@ -24,9 +24,8 @@ spec:
       - name: storageClass
         value: vks
       - name: osConfiguration
-        value:
-          trust:
-          - name: additional-ca-1
+        trust:
+        - name: additional-ca-1
     controlPlane:
       replicas: 1
       metadata:
