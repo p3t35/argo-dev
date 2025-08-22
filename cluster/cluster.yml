@@ -36,10 +36,8 @@ spec:
       metadata:
         annotations:
           run.tanzu.vmware.com/resolve-os-image: os-name=photon, content-library=cl-6bc51e04243a8e2eb
-    workers:
-      machineDeployments:
-        - class: node-pool
-          name: kubernetes-cluster-vl1k-np-bc1i
-          replicas: 3
-        - spec:
-          rolloutAfter: "2025-08-22T00:00:00Z"
+#    workers:
+#      machineDeployments:
+#        - class: node-pool
+#          name: kubernetes-cluster-vl1k-np-bc1i
+#          replicas: 3
