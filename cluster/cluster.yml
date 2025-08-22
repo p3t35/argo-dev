@@ -7,6 +7,7 @@ metadata:
     take-along-label.capi-to-argocd.foo: ""
     take-along-label.capi-to-argocd.my.domain.com/env: ""
 spec:
+  rolloutAfter: "2025-08-22T00:00:00Z"
   clusterNetwork:
     pods:
       cidrBlocks:
@@ -23,6 +24,14 @@ spec:
         value: best-effort-xsmall
       - name: storageClass
         value: vks
+      - name: osConfiguration
+        value:
+          trust:
+            additionalTrustedCAs:
+              - caCert:
+                  secretRef:
+                    key: harbor01-ca
+                    name: ""
     controlPlane:
       replicas: 1
       metadata:
