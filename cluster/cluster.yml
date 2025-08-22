@@ -7,7 +7,6 @@ metadata:
     take-along-label.capi-to-argocd.foo: ""
     take-along-label.capi-to-argocd.my.domain.com/env: ""
 spec:
-  rolloutAfter: "2025-08-22T00:00:00Z"
   clusterNetwork:
     pods:
       cidrBlocks:
@@ -42,3 +41,5 @@ spec:
         - class: node-pool
           name: kubernetes-cluster-vl1k-np-bc1i
           replicas: 3
+        - spec:
+          rolloutAfter: "2025-08-22T00:00:00Z"
